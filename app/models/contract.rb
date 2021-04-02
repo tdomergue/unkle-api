@@ -3,12 +3,20 @@ class Contract < ApplicationRecord
   has_many :subscriptions, dependent: :destroy
   has_many :users, through: :subscriptions
 
-  validates :number, :status, :start_date, presence: true
+  validates :number, :start_date, presence: true
   validates :number, uniqueness: true
 
-  validates_inclusion_of :status, in: %w(pending active finished)
-
   validate :start_before_end
+
+  def status
+    if Date.today < start_date
+      status = "pending"
+    elsif Date.today > end_date
+      status = "finished"
+    else
+      status = "active"
+    end
+  end
 
   private
 

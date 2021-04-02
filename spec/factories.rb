@@ -7,7 +7,6 @@ FactoryBot.define do
 
   factory :contract do
     number { 1234567890 }
-    status { 'active' }
     start_date { Date.parse('19/06/1991') }
     end_date { Date.parse('19/06/2022') }
   end
