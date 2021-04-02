@@ -3,6 +3,8 @@ FactoryBot.define do
   factory :user do
     email { "aurelie.peguet@gmail.com" }
     password { "123456" }
+    first_name { "Aurelie" }
+    last_name { "Peguet" }
   end
 
   factory :contract do
@@ -20,6 +22,11 @@ FactoryBot.define do
     identifier { '3AFF6IKS97' }
     title { "Tout risque" }
     description { "L’assurance « tout risque » est la formule d’assurance voiture la plus complète, mais aussi la plus chère. Elle s’adresse aux automobilistes qui souhaitent circuler l’esprit tranquille, en étant certains de bénéficier de la meilleure couverture possible contre les risques." }
+  end
+
+  factory :contract_option do
+    contract
+    option
   end
 
 end

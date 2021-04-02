@@ -19,9 +19,9 @@ describe Option do
     it { expect(option).to validate_length_of(:title).is_at_most(100) }
   end
 
-  # describe "ActiveRecord Associations" do
-  #   it { expect(option).to have_many(:subscriptions) }
-  #   it { expect(option).to have_many(:contracts) }
-  # end
+  describe "ActiveRecord Associations" do
+    it { expect(option).to have_many(:contract_options) }
+    it { expect(option).to have_many(:contracts) }
+  end
 
 end

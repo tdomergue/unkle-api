@@ -23,6 +23,8 @@ describe Contract do
   describe "ActiveRecord Associations" do
     it { expect(contract).to have_many(:subscriptions) }
     it { expect(contract).to have_many(:users) }
+    it { expect(contract).to have_many(:contract_options) }
+    it { expect(contract).to have_many(:options) }
   end
 
   describe "public class methods" do

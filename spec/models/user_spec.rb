@@ -14,6 +14,8 @@ describe User do
     it { expect(user).to validate_presence_of(:email) }
     it { expect(user).to validate_presence_of(:password) }
     it { expect(user).to validate_presence_of(:admin) }
+    it { expect(user).to validate_presence_of(:first_name) }
+    it { expect(user).to validate_presence_of(:last_name) }
     it { expect(user).to validate_length_of(:password).is_at_least(6) }
 
     # Format validations
@@ -26,6 +28,20 @@ describe User do
   describe "ActiveRecord Associations" do
     it { expect(user).to have_many(:subscriptions) }
     it { expect(user).to have_many(:contracts) }
+  end
+
+  describe "public class methods" do
+    context "responds to its method" do
+      it { expect(user).to respond_to(:full_name) }
+    end
+
+    context "executes method correctly" do
+      context "user.full_name" do
+        it "returns 'first_name last_name'" do
+          expect(user.full_name).to eq("Aurelie Peguet")
+        end
+      end
+    end
   end
 
 end

@@ -3,6 +3,9 @@ class Contract < ApplicationRecord
   has_many :subscriptions, dependent: :destroy
   has_many :users, through: :subscriptions
 
+  has_many :contract_options
+  has_many :options, through: :contract_options
+
   validates :number, :start_date, presence: true
   validates :number, uniqueness: true
 
