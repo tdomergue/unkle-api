@@ -45,6 +45,17 @@ group :development, :test do  gem 'pry-byebug'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  # Test with Rspec
+  gem 'rspec-rails', '~> 4.0'
+  # add method to rspec
+  gem 'rails-controller-testing'
+  # Guard automatically launch test on modifications
+  gem 'guard-rspec', require: false
+  # Fixtures replacement 
+  gem 'factory_bot_rails'
+  # Provides RSpec compatible one-liners to test common Rails functionality
+  gem 'shoulda-matchers', '~> 4.0'
 end
 
 group :development do
