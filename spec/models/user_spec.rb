@@ -13,7 +13,6 @@ describe User do
     # Basic validations
     it { expect(user).to validate_presence_of(:email) }
     it { expect(user).to validate_presence_of(:password) }
-    it { expect(user).to validate_presence_of(:admin) }
     it { expect(user).to validate_presence_of(:first_name) }
     it { expect(user).to validate_presence_of(:last_name) }
     it { expect(user).to validate_length_of(:password).is_at_least(6) }

@@ -5,11 +5,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  acts_as_token_authenticatable
 
   has_many :subscriptions, dependent: :destroy
   has_many :contracts, through: :subscriptions
 
-  validates :email, :password, :admin, :first_name, :last_name, presence: true
+  validates :email, :password, :first_name, :last_name, presence: true
 
   def full_name
     "#{first_name} #{last_name}"

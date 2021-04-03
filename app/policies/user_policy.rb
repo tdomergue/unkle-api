@@ -6,18 +6,18 @@ class UserPolicy < ApplicationPolicy
   end
 
   def index?
-    current_user.admin
+    user.admin
   end
 
   def show?
-    current_user.admin || current_user == record
+    user.admin || user == record
   end
 
   def create?
-    current_user.admin
+    user.admin
   end
 
   def delete?
-    current_user.admin
+    user.admin
   end
 end

@@ -38,6 +38,9 @@ gem 'devise'
 # Authorization
 gem 'pundit'
 
+# Storing the session of the authenticated user 
+gem 'simple_token_authentication'
+
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
