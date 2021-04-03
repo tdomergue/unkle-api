@@ -12,6 +12,7 @@ class Api::V1::UsersController < Api::V1::BaseController
     authorize @user
     if @user.save
       puts "Created"
+      send_welcome_email(@user)
     else
       render_error
     end
@@ -26,5 +27,14 @@ class Api::V1::UsersController < Api::V1::BaseController
   def render_error
     render json: { errors: @user.errors.full_messages },
       status: :unprocessable_entity
+  end
+
+  def send_welcome_email(user)
+    raw, hashed = Devise.token_generator.generate(User, :reset_password_token)
+    user.reset_password_token = hashed
+    user.reset_password_sent_at = Time.now.utc
+    user.save
+    reset_pwd_url = "http://localhost:3000/users/password/edit?reset_password_token=#{raw}"
+    UserMailer.welcome(user, reset_pwd_url).deliver_later
   end
 end
