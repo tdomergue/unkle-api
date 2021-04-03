@@ -11,7 +11,7 @@ class Api::V1::UsersController < Api::V1::BaseController
     @user.password = "UnkleAPI"
     authorize @user
     if @user.save
-      render :show, status: :created
+      puts "Created"
     else
       render_error
     end

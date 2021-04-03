@@ -1,0 +1,22 @@
+<style>
+  body {
+    font-family: 'sans-serif';
+  }
+  strong {
+    font-weight: 600;
+  }
+  p {
+    font-weight: 100;
+  }
+</style>
+<strong>Bienvenue,</strong>
+
+<p>
+  Vous avez été invité(e) sur l'application UnkleAPI
+</p>
+<p>Choisissez votre mot de passe et accédez à l'application : <%= link_to 'je choisis mon mot de passe', @reset_pwd_url %></p>
+
+<br/>
+
+<p>L'équipe de Unkle</p>
+<%= mail_to "unkle.api.test.technique@gmail.com", "unkle.api.test.technique@gmail.com" %>
