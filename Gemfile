@@ -41,6 +41,10 @@ gem 'pundit'
 # Storing the session of the authenticated user 
 gem 'simple_token_authentication'
 
+# Enqueue jobs to be run later
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
