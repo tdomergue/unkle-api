@@ -1,0 +1,6 @@
+curl -i -X POST \                                    
+    -H 'Content-type: application/json' \
+    -H 'X-User-Email: thibaud.domergue@hei.fr' \
+    -H 'X-User-Token: Po57BBj2mGzfT8YQB4gy'   \
+    -d '{ "user": { "email": "b@b.b", "first_name": "b", "last_name": "b", "admin": "true" } }' 
+    http://localhost:3000/api/v1/users \

@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :subscriptions, dependent: :destroy
   has_many :contracts, through: :subscriptions
 
-  validates :email, :password, :first_name, :last_name, presence: true
+  validates :email, :first_name, :last_name, presence: true
 
   def full_name
     "#{first_name} #{last_name}"
