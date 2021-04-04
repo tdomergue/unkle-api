@@ -1,0 +1,4 @@
+curl -i -X GET \                                    
+    -H 'X-User-Email: thibaud.domergue@hei.fr' \
+    -H 'X-User-Token: Po57BBj2mGzfT8YQB4gy'   \
+    http://localhost:3000/api/v1/users/2
