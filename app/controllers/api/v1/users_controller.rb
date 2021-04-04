@@ -15,7 +15,7 @@ class Api::V1::UsersController < Api::V1::BaseController
     @user.password = "UnkleAPI"
     authorize @user
     if @user.save
-      puts "Created"
+      render :show
       send_welcome_email(@user)
     else
       render_error
