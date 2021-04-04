@@ -1,0 +1,9 @@
+curl -i -X DELETE \   
+    -H 'X-User-Email: thibaud.domergue@hei.fr' \
+    -H 'X-User-Token: Po57BBj2mGzfT8YQB4gy'   
+    http://localhost:3000/api/v1/users/17
+
+curl -i -X DELETE                               \
+     -H 'X-User-Email: seb@lewagon.org'         \
+     -H 'X-User-Token: a6hYpzsfNJdYC6zEMxs3'    \
+     http://localhost:3000/api/v1/restaurants/1

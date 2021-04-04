@@ -1,5 +1,6 @@
 class Api::V1::UsersController < Api::V1::BaseController
   acts_as_token_authentication_handler_for User
+  before_action :set_user, only: [ :destroy ]
 
   def index
     @users = policy_scope(User)
@@ -18,7 +19,17 @@ class Api::V1::UsersController < Api::V1::BaseController
     end
   end
 
+  def destroy
+    @user.destroy
+    head :no_content
+  end
+
   private
+
+  def set_user
+    @user = User.find(params[:id])
+    authorize @user
+  end
 
   def user_params
     params.require(:user).permit(:email, :first_name, :last_name, :admin, :password)
