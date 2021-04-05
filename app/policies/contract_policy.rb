@@ -12,4 +12,8 @@ class ContractPolicy < ApplicationPolicy
   def index?
     true
   end
+
+  def show?
+    user.admin || record.user == user
+  end
 end

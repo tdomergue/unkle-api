@@ -1,5 +1,6 @@
 class Api::V1::ContractsController < Api::V1::BaseController
   acts_as_token_authentication_handler_for User
+  before_action :set_contract, only: [ :show ]
 
   def create
     @contract = Contract.new(contract_params)
@@ -22,7 +23,15 @@ class Api::V1::ContractsController < Api::V1::BaseController
     authorize @contracts
   end
 
+  def show
+  end
+
   private
+
+  def set_contract
+    @contract = Contract.find(params[:id])
+    authorize @contract
+  end
 
   def contract_params
     params.require(:contract).permit(:number, :start_date, :end_date)
