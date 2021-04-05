@@ -56,6 +56,23 @@ Option.create!(
   This house insurance is a necessary buy for every tenant.'
 )
 
-puts "Seeds finished!"
+puts "Options created!"
 puts "#{Option.count} options available in the DB!" 
 puts "----------------------------------------------"
+
+
+puts 'Creating an Admin account with which you will be able to use the API...'
+puts '-----------------------'
+
+admin = User.create!(
+  admin: true,
+  first_name: 'Jaime',
+  last_name: 'Unkle',
+  email: 'admin@unkle.fr',
+  password: 'password'
+)
+
+puts "Seeds finished!"
+
+puts "Here are your credentials:"
+p admin
