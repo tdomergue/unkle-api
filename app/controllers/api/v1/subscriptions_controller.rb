@@ -20,6 +20,6 @@ class Api::V1::SubscriptionsController < Api::V1::BaseController
   end
 
   def subscription_params
-    params.require(:subscription).permit(:user_id, :contract_id)
+    params.require(:subscription).permit(:contract_id, :user_id)
   end
 end
