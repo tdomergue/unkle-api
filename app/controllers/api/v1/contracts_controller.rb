@@ -3,13 +3,16 @@ class Api::V1::ContractsController < Api::V1::BaseController
 
   def create
     @contract = Contract.new(contract_params)
+    @subscription = Subscription.new(subscription_params)
+    p subscription_params
+    @subscription.contract = @contract
     authorize @contract
-    if @contract.save!
-      render json: { success: "contract created!" }, status: :created
+    authorize @subscription
+    if @contract.save && @subscription.save
+      render json: { success: "contract and subscription created!" }, status: :created
       # render :show, status: :created
     else
-      # render_error
-      render json: { error: "error!" }
+      render_error
     end
   end
 
@@ -22,5 +25,9 @@ class Api::V1::ContractsController < Api::V1::BaseController
 
   def contract_params
     params.require(:contract).permit(:number, :start_date, :end_date)
+  end
+
+  def subscription_params
+    params.require(:subscription).permit(:user_id, :contract_id)
   end
 end

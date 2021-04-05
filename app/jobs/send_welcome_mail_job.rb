@@ -1,19 +1,12 @@
 class SendWelcomeMailJob < ApplicationJob
   queue_as :default
 
-  def perform
-    puts "I'm starting the fake job"
-    sleep 3
-    puts "OK I'm done now"
-    # raw, hashed = Devise.token_generator.generate(User, :reset_password_token)
-    # user.reset_password_token = hashed
-    # user.reset_password_sent_at = Time.now.utc
-    # user.save
-    # http = Rails.env.development? ? '' : "https://"
-    # port = Rails.env.development? ? ':3000' : ""
-    # base_url = ActionMailer::Base.default_url_options[:host]
-    # reset_pwd_url = "#{http}#{base_url}#{port}/users/password/edit?reset_password_token=#{raw}"
-
-    # UserMailer.first_welcome(user, group.name, role, reset_pwd_url).deliver_later
+  def perform(user)
+    raw, hashed = Devise.token_generator.generate(User, :reset_password_token)
+    user.reset_password_token = hashed
+    user.reset_password_sent_at = Time.now.utc
+    user.save
+    reset_pwd_url = "http://localhost:3000/users/password/edit?reset_password_token=#{raw}"
+    UserMailer.welcome(user, reset_pwd_url).deliver_later
   end
 end

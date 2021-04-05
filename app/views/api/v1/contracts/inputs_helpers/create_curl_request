@@ -14,3 +14,10 @@ curl -i -X POST                                                              \
      -d '{ "contract": { "number": "3628732", "start_date": "19/06/1991", "end_date": "19/06/2031" } }' \
      http://localhost:3000/api/v1/contracts
      
+
+curl -i -X POST                                                              \
+     -H 'Content-Type: application/json'                                     \
+     -H 'X-User-Email: thibaud.domergue@hei.fr'                                      \
+     -H 'X-User-Token: Po57BBj2mGzfT8YQB4gy'                                 \
+     -d '{ "contract": { "number": "63287832783", "start_date": "19/06/1991", "end_date": "19/06/2031" }, "subscription": { "user_id": "2" } }' \
+     http://localhost:3000/api/v1/contracts
