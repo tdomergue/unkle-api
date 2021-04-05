@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :users, only: [ :index, :create, :destroy, :show ]
       resources :contracts, only: [ :create ]
       resources :subscriptions, only: [ :create ]
+      resources :contract_options, only: [ :create ]
     end
   end
 
