@@ -9,6 +9,6 @@ class UserMailer < ApplicationMailer
     @user = user
     @reset_pwd_url = reset_pwd_url
 
-    mail to: user.email, subject: 'Vous avez été invité sur teamworkinteact'
+    mail to: user.email, subject: 'Vous avez été invité sur UnkleAPI'
   end
 end
