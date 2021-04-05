@@ -16,4 +16,8 @@ class ContractPolicy < ApplicationPolicy
   def show?
     user.admin || record.users.include?(user)
   end
+
+  def update?
+    user.admin || record.users.include?(user)
+  end
 end
