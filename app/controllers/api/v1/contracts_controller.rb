@@ -1,13 +1,15 @@
 class Api::V1::ContractsController < Api::V1::BaseController
+  acts_as_token_authentication_handler_for User
 
   def create
     @contract = Contract.new(contract_params)
     authorize @contract
-    if @contract.save
-      render json: { "contract created!" }, status: :created
+    if @contract.save!
+      render json: { success: "contract created!" }, status: :created
       # render :show, status: :created
     else
-      render_error
+      # render_error
+      render json: { error: "error!" }
     end
   end
 

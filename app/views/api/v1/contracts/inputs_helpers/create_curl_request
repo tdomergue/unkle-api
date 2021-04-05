@@ -1,7 +1,16 @@
 curl -i -X POST                                                              \
      -H 'Content-Type: application/json'                                     \
-     -H 'X-User-Email: thibud.domergue@hei.fr'                                      \
+     -H 'X-User-Email: thibaud.domergue@hei.fr'                                      \
      -H 'X-User-Token: Po57BBj2mGzfT8YQB4gy'                                 \
-     -d '{ "contract": { "number": "7630792531", "start_date": "19/06/1991", "end_date": "19/06/2031" } }' \
+     -d '{ "contract": { "number": "638273982", "start_date": "19/06/1991", "end_date": "19/06/2031" } }' \
+     http://localhost:3000/api/v1/contracts
+
+
+NON ADMIN : 
+curl -i -X POST                                                              \
+     -H 'Content-Type: application/json'                                     \
+     -H 'X-User-Email: aurelie.peguet@gmail.com'                                      \
+     -H 'X-User-Token: sR3yniZixLsgFbCV2WX-'                                 \
+     -d '{ "contract": { "number": "3628732", "start_date": "19/06/1991", "end_date": "19/06/2031" } }' \
      http://localhost:3000/api/v1/contracts
      
