@@ -13,11 +13,23 @@ class Contract < ApplicationRecord
 
   def status
     if Date.today < start_date
-      status = "pending"
+      "pending"
     elsif Date.today > end_date
-      status = "finished"
+      "finished"
     else
-      status = "active"
+      "active"
+    end
+  end
+
+  def options_title
+    self.options.map do |option|
+      option.title
+    end
+  end
+
+  def users_full_name
+    self.users.map do |user|
+      user.full_name
     end
   end
 

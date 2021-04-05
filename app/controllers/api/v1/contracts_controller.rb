@@ -12,6 +12,16 @@ class Api::V1::ContractsController < Api::V1::BaseController
     end
   end
 
+  def index
+    @contracts = policy_scope(Contract)
+    unless current_user.admin
+      @contracts = @contracts.select do |contract|
+        contract.users.include?(current_user)
+      end
+    end
+    authorize @contracts
+  end
+
   private
 
   def contract_params
